@@ -22,6 +22,7 @@ parser.add_argument('--hf_model_dir', required=True, help='Path to HF model dire
 parser.add_argument('--tokenizer', default='Salesforce/codegen-16B-multi', help='Name or path to the tokenizer')
 parser.add_argument('-n', '--num_gpu', help='Number of GPUs to use', type=int, default=1)
 parser.add_argument('--model', default='fine-tuned-codegen', help='Name of the model')
+
 args = parser.parse_args()
 
 # Vars we need to fill in:
@@ -47,13 +48,14 @@ config = GPTJConfig.from_pretrained(args.hf_model_dir)
 tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
 max_seq_len = config.n_positions
 is_half = '1' if config.torch_dtype == torch.float16 else '0'
-print('is fp16 datatype selected:',is_half)
+
 # Read in the template config file
 with open(args.template, 'r') as f:
     template = Template(f.read())
 
 #model_name = os.path.basename(args.hf_model_dir)
 model_name=args.model
+model_name = os.path.basename(args.hf_model_dir)
 version = '1'
 params = {}
 params['tensor_para_size'] = args.num_gpu
@@ -88,4 +90,5 @@ print('==========================================================')
 print(f'Created config file for {model_name}')
 print(f'  Config:  {config_path}')
 print(f'  Weights: {weights_path}')
+print('==========================================================')
 print('==========================================================')
