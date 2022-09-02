@@ -15,6 +15,7 @@ echo "[5] codegen-6B-mono (13GB total VRAM required; Python-only)"
 echo "[6] codegen-6B-multi (13GB total VRAM required; multi-language)"
 echo "[7] codegen-16B-mono (32GB total VRAM required; Python-only)"
 echo "[8] codegen-16B-multi (32GB total VRAM required; multi-language)"
+echo "[9] custom fine-tuned codegen model"
 # Read their choice
 read -p "Enter your choice [6]: " MODEL_NUM
 
@@ -28,6 +29,7 @@ case $MODEL_NUM in
     6) MODEL="codegen-6B-multi" ;;
     7) MODEL="codegen-16B-mono" ;;
     8) MODEL="codegen-16B-multi" ;;
+    9) MODEL="fine-tuned-codegen" ;;
     *) MODEL="codegen-6B-multi" ;;
 esac
 
@@ -36,7 +38,11 @@ read -p "Enter number of GPUs [1]: " NUM_GPUS
 NUM_GPUS=${NUM_GPUS:-1}
 
 # Read model directory
-read -p "Where do you want to save the model [$(pwd)/models]? " MODEL_DIR
+if [ "$MODEL" == "fine-tuned-codegen" ]; then
+    read -p "Enter the path to the fine-tuned codegen model: " FINETUNE_DIR
+fi
+
+read -p "Where do you want to save the final model [$(pwd)/models]? " MODEL_DIR
 if [ -z "$MODEL_DIR" ]; then
     MODEL_DIR="$(pwd)/models"
 fi
@@ -45,6 +51,11 @@ fi
 echo "MODEL=${MODEL}" > config.env
 echo "NUM_GPUS=${NUM_GPUS}" >> config.env
 echo "MODEL_DIR=${MODEL_DIR}" >> config.env
+if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
+    echo "FINETUNE_DIR=${FINETUNE_DIR}" >> config.env
+else
+    echo "FINETUNE_DIR=none" >> config.env
+fi
 
 if [ -d "$MODEL_DIR"/"${MODEL}"-${NUM_GPUS}gpu ]; then
     echo "Converted model for ${MODEL}-${NUM_GPUS}gpu already exists, skipping"
@@ -56,7 +67,7 @@ fi
 mkdir -p "${MODEL_DIR}"
 
 # For some of the models we can download it preconverted.
-if [ $NUM_GPUS -le 2 ]; then
+if [[ $NUM_GPUS -le 2 ]] ; then
     echo "Downloading the model from HuggingFace, this will take a while..."
     SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
     DEST="${MODEL}-${NUM_GPUS}gpu"
@@ -66,8 +77,8 @@ if [ $NUM_GPUS -le 2 ]; then
         -o "$ARCHIVE"
     zstd -dc "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
     rm -f "$ARCHIVE"
-else
+else 
     echo "Downloading and converting the model, this will take a while..."
-    docker run --rm -v ${MODEL_DIR}:/models -e MODEL=${MODEL} -e NUM_GPUS=${NUM_GPUS} moyix/model_converter:latest
+    docker run --rm -v ${MODEL_DIR}:/models -v ${FINETUNE_DIR}:/model-checkpoint -e MODEL=${MODEL} -e NUM_GPUS=${NUM_GPUS} moyix/model_converter:latest
 fi
 echo "Done! Now run ./launch.sh to start the FauxPilot server."

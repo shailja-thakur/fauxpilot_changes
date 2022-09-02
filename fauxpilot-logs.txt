@@ -1,0 +1,1538 @@
+[+] Running 2/0
+ ⠿ Container fauxpilot-copilot_proxy-1  Created                                                                                      0.0s
+ ⠿ Container fauxpilot-triton-1         Created                                                                                      0.0s
+Attaching to fauxpilot-copilot_proxy-1, fauxpilot-triton-1
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | =============================
+fauxpilot-triton-1         | == Triton Inference Server ==
+fauxpilot-triton-1         | =============================
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | NVIDIA Release 22.06 (build 39726160)
+fauxpilot-triton-1         | Triton Server Version 2.23.0
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | Copyright (c) 2018-2022, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+fauxpilot-triton-1         | By pulling and using the container, you accept the terms and conditions of this license:
+fauxpilot-triton-1         | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+fauxpilot-triton-1         | 
+fauxpilot-copilot_proxy-1  | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+fauxpilot-copilot_proxy-1  |  * Debug mode: off
+fauxpilot-copilot_proxy-1  |  * Running on all addresses (0.0.0.0)
+fauxpilot-copilot_proxy-1  |    WARNING: This is a development server. Do not use it in a production deployment.
+fauxpilot-copilot_proxy-1  |  * Running on http://127.0.0.1:5000
+fauxpilot-copilot_proxy-1  |  * Running on http://172.18.0.2:5000 (Press CTRL+C to quit)
+fauxpilot-triton-1         | I0902 05:22:41.887570 89 pinned_memory_manager.cc:240] Pinned memory pool is created at '0x7f1f30000000' with size 268435456
+fauxpilot-triton-1         | I0902 05:22:41.888804 89 cuda_memory_manager.cc:105] CUDA memory pool is created on device 0 with size 67108864
+fauxpilot-triton-1         | I0902 05:22:41.888816 89 cuda_memory_manager.cc:105] CUDA memory pool is created on device 1 with size 67108864
+fauxpilot-triton-1         | I0902 05:22:41.998399 89 model_repository_manager.cc:1191] loading: fastertransformer:1
+fauxpilot-triton-1         | I0902 05:22:42.926813 89 libfastertransformer.cc:1226] TRITONBACKEND_Initialize: fastertransformer
+fauxpilot-triton-1         | I0902 05:22:42.926877 89 libfastertransformer.cc:1236] Triton TRITONBACKEND API version: 1.10
+fauxpilot-triton-1         | I0902 05:22:42.926890 89 libfastertransformer.cc:1242] 'fastertransformer' TRITONBACKEND API version: 1.10
+fauxpilot-triton-1         | I0902 05:22:42.926972 89 libfastertransformer.cc:1274] TRITONBACKEND_ModelInitialize: fastertransformer (version 1)
+fauxpilot-triton-1         | W0902 05:22:42.930962 89 libfastertransformer.cc:149] model configuration:
+fauxpilot-triton-1         | {
+fauxpilot-triton-1         |     "name": "fastertransformer",
+fauxpilot-triton-1         |     "platform": "",
+fauxpilot-triton-1         |     "backend": "fastertransformer",
+fauxpilot-triton-1         |     "version_policy": {
+fauxpilot-triton-1         |         "latest": {
+fauxpilot-triton-1         |             "num_versions": 1
+fauxpilot-triton-1         |         }
+fauxpilot-triton-1         |     },
+fauxpilot-triton-1         |     "max_batch_size": 1024,
+fauxpilot-triton-1         |     "input": [
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "input_ids",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "start_id",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "end_id",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "input_lengths",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "request_output_len",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "runtime_top_k",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "runtime_top_p",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "beam_search_diversity_rate",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "temperature",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "len_penalty",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "repetition_penalty",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "random_seed",
+fauxpilot-triton-1         |             "data_type": "TYPE_INT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "is_return_log_probs",
+fauxpilot-triton-1         |             "data_type": "TYPE_BOOL",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "beam_width",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "reshape": {
+fauxpilot-triton-1         |                 "shape": []
+fauxpilot-triton-1         |             },
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "bad_words_list",
+fauxpilot-triton-1         |             "data_type": "TYPE_INT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 2,
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "stop_words_list",
+fauxpilot-triton-1         |             "data_type": "TYPE_INT32",
+fauxpilot-triton-1         |             "format": "FORMAT_NONE",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 2,
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "is_shape_tensor": false,
+fauxpilot-triton-1         |             "allow_ragged_batch": false,
+fauxpilot-triton-1         |             "optional": true
+fauxpilot-triton-1         |         }
+fauxpilot-triton-1         |     ],
+fauxpilot-triton-1         |     "output": [
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "output_ids",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1,
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "label_filename": "",
+fauxpilot-triton-1         |             "is_shape_tensor": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "sequence_length",
+fauxpilot-triton-1         |             "data_type": "TYPE_UINT32",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "label_filename": "",
+fauxpilot-triton-1         |             "is_shape_tensor": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "cum_log_probs",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "label_filename": "",
+fauxpilot-triton-1         |             "is_shape_tensor": false
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "output_log_probs",
+fauxpilot-triton-1         |             "data_type": "TYPE_FP32",
+fauxpilot-triton-1         |             "dims": [
+fauxpilot-triton-1         |                 -1,
+fauxpilot-triton-1         |                 -1
+fauxpilot-triton-1         |             ],
+fauxpilot-triton-1         |             "label_filename": "",
+fauxpilot-triton-1         |             "is_shape_tensor": false
+fauxpilot-triton-1         |         }
+fauxpilot-triton-1         |     ],
+fauxpilot-triton-1         |     "batch_input": [],
+fauxpilot-triton-1         |     "batch_output": [],
+fauxpilot-triton-1         |     "optimization": {
+fauxpilot-triton-1         |         "priority": "PRIORITY_DEFAULT",
+fauxpilot-triton-1         |         "input_pinned_memory": {
+fauxpilot-triton-1         |             "enable": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "output_pinned_memory": {
+fauxpilot-triton-1         |             "enable": true
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "gather_kernel_buffer_threshold": 0,
+fauxpilot-triton-1         |         "eager_batching": false
+fauxpilot-triton-1         |     },
+fauxpilot-triton-1         |     "instance_group": [
+fauxpilot-triton-1         |         {
+fauxpilot-triton-1         |             "name": "fastertransformer_0",
+fauxpilot-triton-1         |             "kind": "KIND_CPU",
+fauxpilot-triton-1         |             "count": 1,
+fauxpilot-triton-1         |             "gpus": [],
+fauxpilot-triton-1         |             "secondary_devices": [],
+fauxpilot-triton-1         |             "profile": [],
+fauxpilot-triton-1         |             "passive": false,
+fauxpilot-triton-1         |             "host_policy": ""
+fauxpilot-triton-1         |         }
+fauxpilot-triton-1         |     ],
+fauxpilot-triton-1         |     "default_model_filename": "fine-tuned-codegen",
+fauxpilot-triton-1         |     "cc_model_filenames": {},
+fauxpilot-triton-1         |     "metric_tags": {},
+fauxpilot-triton-1         |     "parameters": {
+fauxpilot-triton-1         |         "pipeline_para_size": {
+fauxpilot-triton-1         |             "string_value": "1"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "rotary_embedding": {
+fauxpilot-triton-1         |             "string_value": "64"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "start_id": {
+fauxpilot-triton-1         |             "string_value": "50256"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "model_name": {
+fauxpilot-triton-1         |             "string_value": "fine-tuned-codegen"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "is_half": {
+fauxpilot-triton-1         |             "string_value": "1"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "enable_custom_all_reduce": {
+fauxpilot-triton-1         |             "string_value": "0"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "vocab_size": {
+fauxpilot-triton-1         |             "string_value": "51200"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "tensor_para_size": {
+fauxpilot-triton-1         |             "string_value": "2"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "decoder_layers": {
+fauxpilot-triton-1         |             "string_value": "33"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "size_per_head": {
+fauxpilot-triton-1         |             "string_value": "256"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "max_seq_len": {
+fauxpilot-triton-1         |             "string_value": "2048"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "end_id": {
+fauxpilot-triton-1         |             "string_value": "50256"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "inter_size": {
+fauxpilot-triton-1         |             "string_value": "16384"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "head_num": {
+fauxpilot-triton-1         |             "string_value": "16"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "model_type": {
+fauxpilot-triton-1         |             "string_value": "GPT-J"
+fauxpilot-triton-1         |         },
+fauxpilot-triton-1         |         "model_checkpoint_path": {
+fauxpilot-triton-1         |             "string_value": "models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu"
+fauxpilot-triton-1         |         }
+fauxpilot-triton-1         |     },
+fauxpilot-triton-1         |     "model_warmup": []
+fauxpilot-triton-1         | }
+fauxpilot-triton-1         | I0902 05:22:42.932196 89 libfastertransformer.cc:1320] TRITONBACKEND_ModelInstanceInitialize: fastertransformer_0 (device 0)
+fauxpilot-triton-1         | W0902 05:22:42.932243 89 libfastertransformer.cc:453] Faster transformer model instance is created at GPU '0'
+fauxpilot-triton-1         | W0902 05:22:42.932254 89 libfastertransformer.cc:459] Model name fine-tuned-codegen
+fauxpilot-triton-1         | W0902 05:22:42.932287 89 libfastertransformer.cc:578] Get input name: input_ids, type: TYPE_UINT32, shape: [-1]
+fauxpilot-triton-1         | W0902 05:22:42.932299 89 libfastertransformer.cc:578] Get input name: start_id, type: TYPE_UINT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932310 89 libfastertransformer.cc:578] Get input name: end_id, type: TYPE_UINT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932320 89 libfastertransformer.cc:578] Get input name: input_lengths, type: TYPE_UINT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932332 89 libfastertransformer.cc:578] Get input name: request_output_len, type: TYPE_UINT32, shape: [-1]
+fauxpilot-triton-1         | W0902 05:22:42.932343 89 libfastertransformer.cc:578] Get input name: runtime_top_k, type: TYPE_UINT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932354 89 libfastertransformer.cc:578] Get input name: runtime_top_p, type: TYPE_FP32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932364 89 libfastertransformer.cc:578] Get input name: beam_search_diversity_rate, type: TYPE_FP32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932376 89 libfastertransformer.cc:578] Get input name: temperature, type: TYPE_FP32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932386 89 libfastertransformer.cc:578] Get input name: len_penalty, type: TYPE_FP32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932396 89 libfastertransformer.cc:578] Get input name: repetition_penalty, type: TYPE_FP32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932407 89 libfastertransformer.cc:578] Get input name: random_seed, type: TYPE_INT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932418 89 libfastertransformer.cc:578] Get input name: is_return_log_probs, type: TYPE_BOOL, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932430 89 libfastertransformer.cc:578] Get input name: beam_width, type: TYPE_UINT32, shape: [1]
+fauxpilot-triton-1         | W0902 05:22:42.932442 89 libfastertransformer.cc:578] Get input name: bad_words_list, type: TYPE_INT32, shape: [2, -1]
+fauxpilot-triton-1         | W0902 05:22:42.932455 89 libfastertransformer.cc:578] Get input name: stop_words_list, type: TYPE_INT32, shape: [2, -1]
+fauxpilot-triton-1         | W0902 05:22:42.932486 89 libfastertransformer.cc:620] Get output name: output_ids, type: TYPE_UINT32, shape: [-1, -1]
+fauxpilot-triton-1         | W0902 05:22:42.932503 89 libfastertransformer.cc:620] Get output name: sequence_length, type: TYPE_UINT32, shape: [-1]
+fauxpilot-triton-1         | W0902 05:22:42.932515 89 libfastertransformer.cc:620] Get output name: cum_log_probs, type: TYPE_FP32, shape: [-1]
+fauxpilot-triton-1         | W0902 05:22:42.932527 89 libfastertransformer.cc:620] Get output name: output_log_probs, type: TYPE_FP32, shape: [-1, -1]
+fauxpilot-triton-1         | [FT][WARNING] Custom All Reduce only supports 8 Ranks currently. Using NCCL as Comm.
+fauxpilot-triton-1         | I0902 05:22:43.462120 89 libfastertransformer.cc:307] Before Loading Model:
+fauxpilot-triton-1         | after allocation, free 15.38 GB total 15.74 GB
+fauxpilot-triton-1         | after allocation, free 15.38 GB total 15.74 GB
+fauxpilot-triton-1         | [WARNING] gemm_config.in is not found; using default GEMM algo
+fauxpilot-triton-1         | [WARNING] gemm_config.in is not found; using default GEMM algo
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.wte.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.final_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.final_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.wte.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.final_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.final_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.lm_head.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.lm_head.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.lm_head.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.lm_head.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.0.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.1.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.2.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.3.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.4.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.5.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.6.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.7.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.8.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.9.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.10.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.11.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.12.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.13.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.14.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.15.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.16.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.17.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.18.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.19.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.20.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.21.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.22.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.23.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.24.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.25.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.26.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.27.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.28.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.29.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.attention.query_key_value.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.attention.dense.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_h_to_4h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_h_to_4h.bias.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_4h_to_h.weight.0.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | I0902 05:22:52.067999 89 libfastertransformer.cc:321] After Loading Model:
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | after allocation, free 8.02 GB total 15.74 GB
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.30.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.31.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.input_layernorm.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.input_layernorm.weight.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.attention.query_key_value.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.attention.dense.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_h_to_4h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_h_to_4h.bias.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_4h_to_h.weight.1.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | [FT][WARNING] file models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu/model.layers.32.mlp.dense_4h_to_h.bias.bin cannot be opened, loading model fails! 
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | after allocation, free 8.02 GB total 15.74 GB
+fauxpilot-triton-1         | I0902 05:22:52.499675 89 libfastertransformer.cc:537] Model instance is created on GPU NVIDIA RTX A4000
+fauxpilot-triton-1         | I0902 05:22:52.500555 89 model_repository_manager.cc:1345] successfully loaded 'fastertransformer' version 1
+fauxpilot-triton-1         | I0902 05:22:52.500908 89 server.cc:556] 
+fauxpilot-triton-1         | +------------------+------+
+fauxpilot-triton-1         | | Repository Agent | Path |
+fauxpilot-triton-1         | +------------------+------+
+fauxpilot-triton-1         | +------------------+------+
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | I0902 05:22:52.501097 89 server.cc:583] 
+fauxpilot-triton-1         | +-------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | | Backend           | Path                                                                        | Config                                                                                                                                                         |
+fauxpilot-triton-1         | +-------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | | fastertransformer | /opt/tritonserver/backends/fastertransformer/libtriton_fastertransformer.so | {"cmdline":{"auto-complete-config":"false","min-compute-capability":"6.000000","backend-directory":"/opt/tritonserver/backends","default-max-batch-size":"4"}} |
+fauxpilot-triton-1         | +-------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | I0902 05:22:52.501198 89 server.cc:626] 
+fauxpilot-triton-1         | +-------------------+---------+--------+
+fauxpilot-triton-1         | | Model             | Version | Status |
+fauxpilot-triton-1         | +-------------------+---------+--------+
+fauxpilot-triton-1         | | fastertransformer | 1       | READY  |
+fauxpilot-triton-1         | +-------------------+---------+--------+
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | I0902 05:22:52.553865 89 metrics.cc:650] Collecting metrics for GPU 0: NVIDIA RTX A4000
+fauxpilot-triton-1         | I0902 05:22:52.553913 89 metrics.cc:650] Collecting metrics for GPU 1: NVIDIA RTX A4000
+fauxpilot-triton-1         | I0902 05:22:52.554766 89 tritonserver.cc:2159] 
+fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | | Option                           | Value                                                                                                                                                                                        |
+fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | | server_id                        | triton                                                                                                                                                                                       |
+fauxpilot-triton-1         | | server_version                   | 2.23.0                                                                                                                                                                                       |
+fauxpilot-triton-1         | | server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data statistics trace |
+fauxpilot-triton-1         | | model_repository_path[0]         | /model                                                                                                                                                                                       |
+fauxpilot-triton-1         | | model_control_mode               | MODE_NONE                                                                                                                                                                                    |
+fauxpilot-triton-1         | | strict_model_config              | 1                                                                                                                                                                                            |
+fauxpilot-triton-1         | | rate_limit                       | OFF                                                                                                                                                                                          |
+fauxpilot-triton-1         | | pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                                    |
+fauxpilot-triton-1         | | cuda_memory_pool_byte_size{0}    | 67108864                                                                                                                                                                                     |
+fauxpilot-triton-1         | | cuda_memory_pool_byte_size{1}    | 67108864                                                                                                                                                                                     |
+fauxpilot-triton-1         | | response_cache_byte_size         | 0                                                                                                                                                                                            |
+fauxpilot-triton-1         | | min_supported_compute_capability | 6.0                                                                                                                                                                                          |
+fauxpilot-triton-1         | | strict_readiness                 | 1                                                                                                                                                                                            |
+fauxpilot-triton-1         | | exit_timeout                     | 30                                                                                                                                                                                           |
+fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+fauxpilot-triton-1         | 
+fauxpilot-triton-1         | I0902 05:22:52.607188 89 grpc_server.cc:4587] Started GRPCInferenceService at 0.0.0.0:8001
+fauxpilot-triton-1         | I0902 05:22:52.633248 89 http_server.cc:3303] Started HTTPService at 0.0.0.0:8000
+fauxpilot-triton-1         | I0902 05:22:52.675513 89 http_server.cc:178] Started Metrics Service at 0.0.0.0:8002
+
+

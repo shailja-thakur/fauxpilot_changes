@@ -7,18 +7,27 @@ from transformers import GPTJForCausalLM, GPTJConfig
 from transformers import CodeGenTokenizer, CodeGenForCausalLM
 from transformers import CODEGEN_PRETRAINED_MODEL_ARCHIVE_LIST
 
+model_choices=CODEGEN_PRETRAINED_MODEL_ARCHIVE_LIST+['fine-tuned-codegen']
+print(model_choices)
 parser = argparse.ArgumentParser('Convert SalesForce CodeGen model to GPT-J')
 parser.add_argument('--code_model',
-    choices=CODEGEN_PRETRAINED_MODEL_ARCHIVE_LIST, default='Salesforce/codegen-350M-multi',
+    choices=model_choices, default='Salesforce/codegen-350M-multi',
     help='which SalesForce model to convert'
 )
+
+parser.add_argument('--finetune_dir',default='none')
 parser.add_argument('output_dir', help='where to store the converted model')
-args = parser.parse_args()
-
+args,unknown = parser.parse_known_args()
+print(vars(args))
 print('Loading CodeGen model')
-cg_model = CodeGenForCausalLM.from_pretrained(args.code_model, torch_dtype="auto")
-cg_config = cg_model.config
+if (args.code_model != "fine-tuned-codegen"):
 
+    cg_model = CodeGenForCausalLM.from_pretrained(args.code_model, torch_dtype="auto")
+    cg_config = cg_model.config
+else: 
+    cg_model = CodeGenForCausalLM.from_pretrained(args.finetune_dir, torch_dtype=torch.float16)
+    cg_config=cg_model.config
+    print(cg_model.dtype, cg_config.torch_dtype)
 # Create empty GPTJ model
 print('Creating empty GPTJ model')
 config = GPTJConfig(

@@ -31,7 +31,8 @@ RUN cd transformers && python3 setup.py develop
 
 RUN mkdir /workspace
 WORKDIR /workspace
-ENV MODEL=codegen-6B-multi
-ENV NUM_GPUS=1
+#ENV MODEL=fine-tuned-codegen
+#ENV NUM_GPUS=2
+#ENV FINETUNE_DIR=/home/st4920/codegen-models/checkpoint-4000
 COPY . .
 CMD ["bash", "-c", "bash download_and_convert_model.sh $MODEL $NUM_GPUS"]
