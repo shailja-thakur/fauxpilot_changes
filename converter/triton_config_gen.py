@@ -64,8 +64,13 @@ params['is_half'] = is_half
 params['head_num'] = config.n_head
 params['size_per_head'] = config.n_embd // config.n_head
 params['inter_size'] = 4*config.n_embd
-# Vocab size gets rounded up to a multiple of 1024
-params['vocab_size'] = round_up(tokenizer.vocab_size, 1024)
+
+# Vocab size gets rounded up to a multiple of 1024, this is the setting that works with pre-trained codegen models
+#params['vocab_size'] = round_up(tokenizer.vocab_size, 1024)
+
+# for fine-tuned codegen models, the trainer does not automatically round off the vocab size to a multiple of 1024, and hence keep the actual vocab_size
+params['vocab_size'] = tokenizer.vocab_size
+
 params['start_id'] = tokenizer.eos_token_id
 params['end_id'] = tokenizer.eos_token_id
 params['decoder_layers'] = config.n_layer
@@ -73,7 +78,8 @@ params['rotary_embedding'] = config.rotary_dim
 # NOTE: this assumes that the model dir follows the format used by the other conversion scripts
 model_dir = os.path.join(args.model_store, f'{model_name}-{args.num_gpu}gpu')
 weights_path = os.path.join(model_dir, 'fastertransformer', f'{version}', f'{args.num_gpu}-gpu')
-params['checkpoint_path'] = weights_path
+model_chkpt_path = os.path.join('/','model', 'fastertransformer', f'{version}', f'{args.num_gpu}-gpu')
+params['checkpoint_path'] = model_checkpt_path
 triton_config = template.substitute(params)
 assert '${' not in triton_config
 
