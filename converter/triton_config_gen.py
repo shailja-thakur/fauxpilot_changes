@@ -65,11 +65,14 @@ params['head_num'] = config.n_head
 params['size_per_head'] = config.n_embd // config.n_head
 params['inter_size'] = 4*config.n_embd
 
-# Vocab size gets rounded up to a multiple of 1024, this is the setting that works with pre-trained codegen models
-#params['vocab_size'] = round_up(tokenizer.vocab_size, 1024)
-
-# for fine-tuned codegen models, the trainer does not automatically round off the vocab size to a multiple of 1024, and hence keep the actual vocab_size
-params['vocab_size'] = tokenizer.vocab_size
+# Vocab size gets rounded up to a multiple of 1024 in CodeGen
+# But, for fine-tuned codegen models, the trainer does not automatically 
+# round off the vocab size to a multiple of 1024, and hence keep the actual 
+# vocab_size
+if (args.model =="fine-tuned-codegen"):
+    params['vocab_size'] = tokenizer.vocab_size
+else:
+    params['vocab_size'] = round_up(tokenizer.vocab_size, 1024)
 
 params['start_id'] = tokenizer.eos_token_id
 params['end_id'] = tokenizer.eos_token_id
