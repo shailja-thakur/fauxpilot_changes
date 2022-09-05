@@ -55,7 +55,6 @@ with open(args.template, 'r') as f:
 
 #model_name = os.path.basename(args.hf_model_dir)
 model_name=args.model
-model_name = os.path.basename(args.hf_model_dir)
 version = '1'
 params = {}
 params['tensor_para_size'] = args.num_gpu

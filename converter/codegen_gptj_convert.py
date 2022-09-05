@@ -25,7 +25,7 @@ if (args.code_model != "fine-tuned-codegen"):
     cg_model = CodeGenForCausalLM.from_pretrained(args.code_model, torch_dtype="auto")
     cg_config = cg_model.config
 else: 
-    cg_model = CodeGenForCausalLM.from_pretrained(args.finetune_dir, torch_dtype=torch.float16)
+    cg_model = CodeGenForCausalLM.from_pretrained(args.finetune_dir, torch_dtype="auto")
     cg_config=cg_model.config
     print(cg_model.dtype, cg_config.torch_dtype)
 # Create empty GPTJ model
