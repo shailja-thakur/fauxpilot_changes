@@ -95,12 +95,15 @@ if [[ $NUM_GPUS -le 2 ]]; then
     ARCHIVE="${MODEL_DIR}/${DEST}.tar.zst"
     cp -r "$SCRIPT_DIR"/converter/models/"$DEST" "${MODEL_DIR}"
     if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
+        echo "downloading fine-tuned model"
+        echo "https://huggingface.co/shailja/${MODEL}-Verilog/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst"
+
         curl -L "https://huggingface.co/shailja/${MODEL}-Verilog/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
             -o "$ARCHIVE"
     else
         curl -L "https://huggingface.co/moyix/${MODEL}-gptj/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
             -o "$ARCHIVE"
-
+    fi
     zstd -dc "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
     rm -f "$ARCHIVE"
 else
