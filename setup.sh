@@ -6,18 +6,34 @@ if [ -f config.env ]; then
     exit 0
 fi
 
-echo "Models available:"
-echo "[1] codegen-350M-mono (2GB total VRAM required; Python-only)"
-echo "[2] codegen-350M-multi (2GB total VRAM required; multi-language)"
-echo "[3] codegen-2B-mono (7GB total VRAM required; Python-only)"
-echo "[4] codegen-2B-multi (7GB total VRAM required; multi-language)"
-echo "[5] codegen-6B-mono (13GB total VRAM required; Python-only)"
-echo "[6] codegen-6B-multi (13GB total VRAM required; multi-language)"
-echo "[7] codegen-16B-mono (32GB total VRAM required; Python-only)"
-echo "[8] codegen-16B-multi (32GB total VRAM required; multi-language)"
-echo "[9] custom fine-tuned codegen model"
-# Read their choice
-read -p "Enter your choice [6]: " MODEL_NUM
+read -p "Are you loading pre-trained model? <y/N> " input
+if [[ $input == "y" || $input == "Y" || $input == "yes" || $input == "Yes" ]]; then
+
+
+    echo "Pre-trained models available:"
+    echo "[1] codegen-350M-mono (2GB total VRAM required; Python-only)"
+    echo "[2] codegen-350M-multi (2GB total VRAM required; multi-language)"
+    echo "[3] codegen-2B-mono (7GB total VRAM required; Python-only)"
+    echo "[4] codegen-2B-multi (7GB total VRAM required; multi-language)"
+    echo "[5] codegen-6B-mono (13GB total VRAM required; Python-only)"
+    echo "[6] codegen-6B-multi (13GB total VRAM required; multi-language)"
+    echo "[7] codegen-16B-mono (32GB total VRAM required; Python-only)"
+    echo "[8] codegen-16B-multi (32GB total VRAM required; multi-language)"
+
+    # Read their choice
+    read -p "Enter your choice [6]: " MODEL_NUM
+else 
+
+    echo "Fine-tuned models available:"
+    echo "[9] fine-tuned-codegen-2B (7GB total VRAM required; Verilog-only)"
+    echo "[10] fine-tuned-codegen-6B (13GB total VRAM required; Verilog-only)"
+    echo "[11] fine-tuned-codegen-16B (32GB total VRAM required; Verilog-only)"
+    echo "Models available:"
+
+    # Read their choice
+    read -p "Enter your choice [6]: " MODEL_NUM
+
+fi
 
 # Convert model number to model name
 case $MODEL_NUM in
@@ -29,18 +45,21 @@ case $MODEL_NUM in
     6) MODEL="codegen-6B-multi" ;;
     7) MODEL="codegen-16B-mono" ;;
     8) MODEL="codegen-16B-multi" ;;
-    9) MODEL="fine-tuned-codegen" ;;
+    9) MODEL="fine-tuned-codegen-2B" ;;
+    10) MODEL="fine-tuned-codegen-6B" ;;
+    11) MODEL="fine-tuned-codegen-16B" ;;
     *) MODEL="codegen-6B-multi" ;;
 esac
+
+# Read model directory
+# if [ "$MODEL" == "fine-tuned-codegen-"* ]; then
+#     read -p "Enter the path to the fine-tuned codegen model: " FINETUNE_DIR
+# fi
 
 # Read number of GPUs
 read -p "Enter number of GPUs [1]: " NUM_GPUS
 NUM_GPUS=${NUM_GPUS:-1}
 
-# Read model directory
-if [ "$MODEL" == "fine-tuned-codegen" ]; then
-    read -p "Enter the path to the fine-tuned codegen model: " FINETUNE_DIR
-fi
 
 read -p "Where do you want to save the final model [$(pwd)/models]? " MODEL_DIR
 if [ -z "$MODEL_DIR" ]; then
@@ -51,11 +70,11 @@ fi
 echo "MODEL=${MODEL}" > config.env
 echo "NUM_GPUS=${NUM_GPUS}" >> config.env
 echo "MODEL_DIR=${MODEL_DIR}" >> config.env
-if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
-    echo "FINETUNE_DIR=${FINETUNE_DIR}" >> config.env
-else
-    echo "FINETUNE_DIR=none" >> config.env
-fi
+# if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
+#     echo "FINETUNE_DIR=${FINETUNE_DIR}" >> config.env
+# else
+#     echo "FINETUNE_DIR=none" >> config.env
+# fi
 
 if [ -d "$MODEL_DIR"/"${MODEL}"-${NUM_GPUS}gpu ]; then
     echo "Converted model for ${MODEL}-${NUM_GPUS}gpu already exists, skipping"
@@ -63,18 +82,25 @@ if [ -d "$MODEL_DIR"/"${MODEL}"-${NUM_GPUS}gpu ]; then
     exit 0
 fi
 
+
+
 # Create model directory
 mkdir -p "${MODEL_DIR}"
 
 # For some of the models we can download it preconverted.
-if [[ $NUM_GPUS -le 2 ]] && [[$MODEL == 'codegen-'*]] ; then
+if [[ $NUM_GPUS -le 2 ]]; then
     echo "Downloading the model from HuggingFace, this will take a while..."
     SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
     DEST="${MODEL}-${NUM_GPUS}gpu"
     ARCHIVE="${MODEL_DIR}/${DEST}.tar.zst"
     cp -r "$SCRIPT_DIR"/converter/models/"$DEST" "${MODEL_DIR}"
-    curl -L "https://huggingface.co/moyix/${MODEL}-gptj/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
-        -o "$ARCHIVE"
+    if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
+        curl -L "https://huggingface.co/shailja/${MODEL}-Verilog/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
+            -o "$ARCHIVE"
+    else
+        curl -L "https://huggingface.co/moyix/${MODEL}-gptj/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
+            -o "$ARCHIVE"
+
     zstd -dc "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
     rm -f "$ARCHIVE"
 else

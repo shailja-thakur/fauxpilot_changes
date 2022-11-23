@@ -1,6 +1,6 @@
 name: "fastertransformer"
 backend: "fastertransformer"
-default_model_filename: "fine-tuned-codegen"
+default_model_filename: "fine-tuned-codegen-6B"
 max_batch_size: 1024
 input [
   {
@@ -182,7 +182,7 @@ parameters {
 parameters {
   key: "vocab_size"
   value: {
-    string_value: "51200"
+    string_value: "50257"
   }
 }
 parameters {
@@ -206,7 +206,7 @@ parameters {
 parameters {
   key: "model_name"
   value: {
-    string_value: "fine-tuned-codegen"
+    string_value: "fine-tuned-codegen-6B"
   }
 }
 parameters {
@@ -224,7 +224,7 @@ parameters {
 parameters {
   key: "model_checkpoint_path"
   value: {
-    string_value: "models/fine-tuned-codegen-2gpu/fastertransformer/1/2-gpu"
+    string_value: "model/fastertransformer/1/2-gpu"
   }
 }
 parameters {
