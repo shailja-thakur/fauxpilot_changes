@@ -24,7 +24,6 @@ Run the setup script to choose a model to use. This will download the model from
 
 ```
 $ ./setup.sh 
-(base) st4920@arrakis:~/fauxpilot_changes$ ./setup.sh 
 Are you loading pre-trained model? <y/N> N
 Fine-tuned models available:
 [9] fine-tuned-codegen-2B (7GB total VRAM required; Verilog-only)
