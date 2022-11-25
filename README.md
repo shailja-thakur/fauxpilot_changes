@@ -88,7 +88,7 @@ Once the `setup.sh` finishes successfully, change the value for `model_checkpoin
 Once the `setup.sh` finishes successfully, then you can just run `./launch.sh`:
 
 ```
-(base) st4920@arrakis:~/fauxpilot-codegen16B$ ./launch.sh 
+$ ./launch.sh 
 [+] Running 2/0
  ⠿ Container fauxpilot-codegen16b-triton-1         Created                                                                                         0.0s
  ⠿ Container fauxpilot-codegen16b-copilot_proxy-1  Created                                                                                         0.0s
