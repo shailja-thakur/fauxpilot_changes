@@ -94,7 +94,8 @@ if [[ $NUM_GPUS -le 2 ]]; then
     DEST="${MODEL}-${NUM_GPUS}gpu"
     ARCHIVE="${MODEL_DIR}/${DEST}.tar.zst"
     cp -r "$SCRIPT_DIR"/converter/models/"$DEST" "${MODEL_DIR}"
-    if [[ "$MODEL" == "fine-tuned-codegen" ]]; then
+    echo "$SCRIPT_DIR"/converter/models/"$DEST"
+    if [[ "$MODEL" == "fine-tuned-codegen"* ]]; then
         echo "downloading fine-tuned model"
         echo "https://huggingface.co/shailja/${MODEL}-Verilog/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst"
 
@@ -104,7 +105,11 @@ if [[ $NUM_GPUS -le 2 ]]; then
         curl -L "https://huggingface.co/moyix/${MODEL}-gptj/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
             -o "$ARCHIVE"
     fi
-    zstd -dc "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
+    #zstd "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
+    tar -xf "${ARCHIVE}" -C "${MODEL_DIR}"
+    #echo "$SCRIPT_DIR"/converter/models/"$DEST"/fastertransformer/config.pbtxt 
+    #echo "${MODEL_DIR}"/"$DEST"/fastertransformer/
+    #cp "$SCRIPT_DIR"/converter/models/"$DEST"/fastertransformer/config.pbtxt "${MODEL_DIR}"/"$DEST"/fastertransformer/
     rm -f "$ARCHIVE"
 else
     echo "Downloading and converting the model, this will take a while..."
