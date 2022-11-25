@@ -24,6 +24,27 @@ Run the setup script to choose a model to use. This will download the model from
 
 ```
 $ ./setup.sh 
+(base) st4920@arrakis:~/fauxpilot_changes$ ./setup.sh 
+Are you loading pre-trained model? <y/N> N
+Fine-tuned models available:
+[9] fine-tuned-codegen-2B (7GB total VRAM required; Verilog-only)
+[10] fine-tuned-codegen-6B (13GB total VRAM required; Verilog-only)
+[11] fine-tuned-codegen-16B (32GB total VRAM required; Verilog-only)
+Models available:
+Enter your choice [6]: 9
+Enter number of GPUs [1]: 1
+Where do you want to save the final model [/home/st4920/fauxpilot_changes/models]? 
+Downloading the model from HuggingFace, this will take a while...
+/home/st4920/fauxpilot_changes/converter/models/fine-tuned-codegen-2B-1gpu
+downloading fine-tuned model
+https://huggingface.co/shailja/fine-tuned-codegen-2B-Verilog/resolve/main/fine-tuned-codegen-2B-1gpu.tar.zst
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1179  100  1179    0     0  18607      0 --:--:-- --:--:-- --:--:-- 18714
+100 10.3G  100 10.3G    0     0  39.9M      0  0:04:24  0:04:24 --:--:-- 41.8M
+Done! Now run ./launch.sh to start the FauxPilot server.
+
+<!--
 Models available:
 [1] codegen-350M-mono (2GB total VRAM required; Python-only)
 [2] codegen-350M-multi (2GB total VRAM required; multi-language)
@@ -79,6 +100,7 @@ transformer.ln_f.bias
 lm_head.weight
 lm_head.bias
 Done! Now run ./launch.sh to start the FauxPilot server.
+-->
 ```
 <!-- 
 Once the `setup.sh` finishes successfully, change the value for `model_checkpoint_path` to `/model/fastertransformer/1/n-gpu` in `config.pbtxt` located inside  `fauxpilot_changes/models/fine-tuned-codegen-mB-ngpu/fastertransformer/` 
