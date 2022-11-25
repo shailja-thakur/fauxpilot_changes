@@ -101,12 +101,14 @@ if [[ $NUM_GPUS -le 2 ]]; then
 
         curl -L "https://huggingface.co/shailja/${MODEL}-Verilog/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
             -o "$ARCHIVE"
+	tar -xf "${ARCHIVE}" -C "${MODEL_DIR}"
     else
         curl -L "https://huggingface.co/moyix/${MODEL}-gptj/resolve/main/${MODEL}-${NUM_GPUS}gpu.tar.zst" \
             -o "$ARCHIVE"
+	zstd "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
     fi
     #zstd "$ARCHIVE" | tar -xf - -C "${MODEL_DIR}"
-    tar -xf "${ARCHIVE}" -C "${MODEL_DIR}"
+    #tar -xf "${ARCHIVE}" -C "${MODEL_DIR}"
     #echo "$SCRIPT_DIR"/converter/models/"$DEST"/fastertransformer/config.pbtxt 
     #echo "${MODEL_DIR}"/"$DEST"/fastertransformer/
     #cp "$SCRIPT_DIR"/converter/models/"$DEST"/fastertransformer/config.pbtxt "${MODEL_DIR}"/"$DEST"/fastertransformer/
