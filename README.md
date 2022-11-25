@@ -43,6 +43,7 @@ https://huggingface.co/shailja/fine-tuned-codegen-2B-Verilog/resolve/main/fine-t
 100  1179  100  1179    0     0  18607      0 --:--:-- --:--:-- --:--:-- 18714
 100 10.3G  100 10.3G    0     0  39.9M      0  0:04:24  0:04:24 --:--:-- 41.8M
 Done! Now run ./launch.sh to start the FauxPilot server.
+```
 
 <!--
 Models available:
@@ -101,7 +102,6 @@ lm_head.weight
 lm_head.bias
 Done! Now run ./launch.sh to start the FauxPilot server.
 -->
-```
 <!-- 
 Once the `setup.sh` finishes successfully, change the value for `model_checkpoint_path` to `/model/fastertransformer/1/n-gpu` in `config.pbtxt` located inside  `fauxpilot_changes/models/fine-tuned-codegen-mB-ngpu/fastertransformer/` 
 [Please note that **n** and **m** in the path are the # gpu and # model parameters (2/6/16) selected during setup]
