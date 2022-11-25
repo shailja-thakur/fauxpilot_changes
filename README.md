@@ -80,11 +80,12 @@ lm_head.weight
 lm_head.bias
 Done! Now run ./launch.sh to start the FauxPilot server.
 ```
+<!-- 
 Once the `setup.sh` finishes successfully, change the value for `model_checkpoint_path` to `/model/fastertransformer/1/n-gpu` in `config.pbtxt` located inside  `fauxpilot_changes/models/fine-tuned-codegen-mB-ngpu/fastertransformer/` 
-
 [Please note that **n** and **m** in the path are the # gpu and # model parameters (2/6/16) selected during setup]
+-->
 
-Then you can just run `./launch.sh`:
+Once the `setup.sh` finishes successfully, then you can just run `./launch.sh`:
 
 ```
 (base) st4920@arrakis:~/fauxpilot-codegen16B$ ./launch.sh 
