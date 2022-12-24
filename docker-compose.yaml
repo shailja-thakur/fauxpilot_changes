@@ -18,7 +18,9 @@ services:
               count: all
               capabilities: [gpu]
   copilot_proxy:
-    image: moyix/copilot_proxy:latest
+    build:
+      context: ./copilot_proxy/
+      dockerfile: Dockerfile
     command: python3 -m flask run --host=0.0.0.0 --port=5000
     ports:
       - "5000:5000"
